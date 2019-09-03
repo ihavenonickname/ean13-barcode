@@ -1,0 +1,109 @@
+<div>
+  <input type="text" pattern="[0-9]" maxlength="12" id="inp">
+</div>
+
+<div>
+  <span id="msg"></span>
+</div>
+
+<div>
+  <span id="bin"></span>
+</div>
+
+<script>
+var msg = document.getElementById('msg');
+var bin = document.getElementById('bin');
+var inp = document.getElementById('inp');
+
+var A = [
+  '0001101',
+  '0011001',
+  '0010011',
+  '0111101',
+  '0100011',
+  '0110001',
+  '0101111',
+  '0111011',
+  '0110111',
+  '0001011',
+];
+
+var B = [
+  '0100111',
+  '0110011',
+  '0011011',
+  '0100001',
+  '0011101',
+  '0111001',
+  '0000101',
+  '0010001',
+  '0001001',
+  '0010111',
+];
+
+var C = [
+  '1110010',
+  '1100110',
+  '1101100',
+  '1000010',
+  '1011100',
+  '1001110',
+  '1010000',
+  '1000100',
+  '1001000',
+  '1110100',
+];
+
+const sequences = [
+  [A, A, A, A, A, A],
+  [A, A, B, A, B, B],
+  [A, A, B, B, A, B],
+  [A, A, B, B, B, A],
+  [A, B, A, A, B, B],
+  [A, B, B, A, A, B],
+  [A, B, B, B, A, A],
+  [A, B, A, B, A, B],
+  [A, B, A, B, B, A],
+  [A, B, B, A, B, A],
+]
+
+function generateDV(digits) {
+	var a = 0;
+  
+  for (var i = 1; i < digits.length; i += 2) {
+  	a += digits[i];
+  }
+  
+  var b = a * 3;
+  
+  var c = 0;
+  
+  for (var i = 0; i < digits.length; i += 2) {
+  	c += digits[i];
+  }
+  
+  var d = b + c;
+  
+  return 10 - d % 10;
+}
+
+inp.addEventListener('input', function() {
+	msg.textContent = '';
+  bin.textContent = '';
+  
+	if (!/\d{12}/.test(inp.value)) {
+  	return;
+  }
+  
+  var digits = inp.value.split('').map(x => parseInt(x));
+  
+  digits.push(generateDV(digits));
+
+  for (var i = 0; i < digits.length; i++) {
+    msg.textContent += digits[i];
+    bin.textContent += C[digits[i]];
+  }
+});
+
+// var digits = [4, 9, 0, 2, 5, 0, 5, 3, 5, 5, 7, 6];
+</script>
