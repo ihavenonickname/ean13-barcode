@@ -104,14 +104,7 @@ userInput.addEventListener('input', function () {
 
     for (var i = 1; i < digits.length; i++) {
         var table = sequence[i - 1];
-
-        var bin = ''
-
-        if (i <= 6) {
-            bin += tables[table][digits[i]];
-        } else {
-            bin += tables.C[digits[i]];
-        }
+        var bin = tables[table][digits[i]];
 
         for (var j = 0; j < bin.length; j++) {
             var div = document.createElement('div');
