@@ -1,0 +1,19 @@
+.on {
+    background-color: black;
+}
+
+.off {
+    background-color: white;
+}
+
+#display-barcode {
+    display: flex;
+    min-height: 100px;
+    border: solid grey 1px;
+    border-radius: 5px;
+}
+
+#display-barcode > div {
+    flex: 1;
+}
+
