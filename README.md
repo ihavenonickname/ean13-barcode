@@ -1,2 +1,5 @@
 # ean13-barcode
-woah
+
+Check it out!
+
+https://ihavenonickname.github.io/ean13-barcode/
