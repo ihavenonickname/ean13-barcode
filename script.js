@@ -155,6 +155,7 @@ function main() {
     }
 
     result.classList.remove('is-hidden');
+    userInput.blur();
 }
 
 userInput.addEventListener('input', main);
