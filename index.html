@@ -6,17 +6,14 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
 <link rel="stylesheet" href="style.css">
 
-<title>EAN-13 visualizer</title>
-
-<header>
-</header>
+<title>EAN-13 helper tool</title>
 
 <section class="section">
   <div class="content">
-    <h1 class="title has-text-centered">EAN-13 visualizer</h1>
+    <h1 class="title is-1 has-text-centered">EAN-13</h1>
 
     <p class="subtitle has-text-centered">
-      Validate and visualize <strong>EAN-13</strong> codes
+      Verify and visualize <strong>EAN-13</strong> codes
     </p>
 
     <div class="columns is-mobile is-centered">
@@ -32,6 +29,10 @@
     </div>
 
     <div id="result" class="is-hidden">
+      <hr>
+
+      <h3 class="title is-3 has-text-centered">Check digit calculation</h2>
+
       <div class="columns is-mobile is-centered is-size-4">
         <div id="display-multiplication-calc" class="column is-narrow has-text-right">
           <span class="is-block"></span>
@@ -97,16 +98,19 @@
       <div class="columns is-mobile is-centered">
         <div class="column is-narrow is-size-4 has-text-centered">
           <p>
-            The least significant <br/>
-            digit is extracted, <br/>
+            The least significant <br />
+            digit is extracted, <br />
             thus the check digit is <span id="display-dv-2" class="is-size-3 bordered dv"></span>
           </p>
         </div>
       </div>
 
+      <hr>
+      <h3 class="title is-3 has-text-centered">Conversion to binary encoding</h2>
 
       <div class="columns is-mobile has-text-centered is-centered">
         <div class="column is-half-desktop is-centered">
+
           <table class="table is-hoverable" id="binary-table">
             <thead>
               <tr>
@@ -120,7 +124,11 @@
         </div>
       </div>
 
+      <hr>
+      <h3 class="title is-3 has-text-centered">Barcode visualization</h2>
+
       <div class="columns is-mobile has-text-centered is-centered">
+
         <div class="column is-half-desktop">
           <div id="display-barcode"></div>
         </div>
