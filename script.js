@@ -94,7 +94,7 @@ function generateDV(digits) {
     return dv % 10 === 0 ? 0 : dv;
 }
 
-userInput.addEventListener('input', function () {
+function main() {
     result.classList.add('is-hidden');
 
     var tbody = binaryTable.querySelector('tbody');
@@ -155,6 +155,9 @@ userInput.addEventListener('input', function () {
     }
 
     result.classList.remove('is-hidden');
-});
+}
+
+userInput.addEventListener('input', main);
+window.addEventListener('load', main);
 
 // 490250535576 9
