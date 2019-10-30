@@ -8,12 +8,39 @@
 
 #display-barcode {
     display: flex;
-    min-height: 100px;
+    min-height: 130px;
     border: solid grey 1px;
     border-radius: 5px;
+}
+
+@media (min-width: 720px) {
+    #display-barcode {
+        min-height: 250px;
+    }
 }
 
 #display-barcode > div {
     flex: 1;
 }
 
+.line {
+    border-bottom: solid black 2px;
+}
+
+.bordered {
+    border: solid lightgrey 1px;
+    border-radius: 10px;
+}
+
+.sum {
+    background-color: khaki;
+}
+
+.int-part {
+    background-color: lightblue;
+}
+
+.dv {
+    background-color: mediumaquamarine;
+    padding: 5px;
+}

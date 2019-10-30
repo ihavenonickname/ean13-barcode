@@ -31,18 +31,79 @@
       </div>
     </div>
 
-    <div id="tabs" class="columns is-mobile is-centered is-hidden">
-      <div class="column is-half-desktop">
-        <div class="tabs is-centered">
-          <ul>
-            <li id="tab-explanation" class="is-active"><a>Explanation</a></li>
-            <li id="tab-barcode"><a>Barcode</a></li>
-          </ul>
+    <div id="result" class="is-hidden">
+      <div class="columns is-mobile is-centered is-size-4">
+        <div id="display-multiplication-calc" class="column is-narrow has-text-right">
+          <span class="is-block"></span>
+          <span class="is-block"></span>
+          <span class="is-block"></span>
+          <span class="is-block"></span>
+          <span class="is-block"></span>
+          <span class="is-block"></span>
+          <span class="is-block"></span>
+          <span class="is-block"></span>
+          <span class="is-block"></span>
+          <span class="is-block"></span>
+          <span class="is-block"></span>
+          <span class="is-block"></span>
+        </div>
+        <div class="column is-narrow has-text-centered">
+          <span class="is-block">=</span>
+          <span class="is-block">=</span>
+          <span class="is-block">=</span>
+          <span class="is-block">=</span>
+          <span class="is-block">=</span>
+          <span class="is-block">=</span>
+          <span class="is-block">=</span>
+          <span class="is-block">=</span>
+          <span class="is-block">=</span>
+          <span class="is-block">=</span>
+          <span class="is-block">=</span>
+          <span class="is-block">=</span>
+        </div>
+        <div id="display-multiplication-res" class="column is-narrow has-text-right">
+          <span class="is-block"></span>
+          <span class="is-block"></span>
+          <span class="is-block"></span>
+          <span class="is-block"></span>
+          <span class="is-block"></span>
+          <span class="is-block"></span>
+          <span class="is-block"></span>
+          <span class="is-block"></span>
+          <span class="is-block"></span>
+          <span class="is-block"></span>
+          <span class="is-block"></span>
+          <span class="is-block"></span>
+          <span class="is-block line"></span>
+          <span id="display-sum" class="is-block is-size-3 sum bordered"></span>
         </div>
       </div>
-    </div>
 
-    <div id="result" class="is-hidden">
+      <div class="columns is-mobile is-centered">
+        <div class="column is-narrow is-size-3">
+          <span id="display-sum-2" class="sum bordered">1</span> ÷ 10 = <span id="display-int-part"
+            class="bordered int-part"></span>,<span id="display-frac-part"></span>
+        </div>
+      </div>
+
+      <div class="columns is-mobile is-centered">
+        <div class="column is-narrow is-size-3">
+          <span class="is-block"></span>
+          (<span id="display-int-part-2" class="bordered int-part"></span> + 1) × 10 - <span id="display-sum-3"
+            class="bordered sum"></span> = <span id="display-dv"></span>
+        </div>
+      </div>
+
+      <div class="columns is-mobile is-centered">
+        <div class="column is-narrow is-size-3 has-text-centered">
+          <div>The least significant digit is extracted,</div>
+          <div>
+            thus the check digit is <span id="display-dv-2" class="is-size-3 bordered dv"></span>
+          </div>
+        </div>
+      </div>
+
+
       <div class="columns is-mobile has-text-centered is-centered">
         <div class="column is-half-desktop is-centered">
           <table class="table is-hoverable" id="binary-table">
@@ -56,10 +117,10 @@
             <tbody></tbody>
           </table>
         </div>
-
       </div>
+
       <div class="columns is-mobile has-text-centered is-centered">
-        <div class="column is-one-quarter-desktop">
+        <div class="column is-half-desktop">
           <div id="display-barcode"></div>
         </div>
       </div>
@@ -67,6 +128,5 @@
   </div>
   </div>
 </section>
-
 
 <script src="script.js"></script>

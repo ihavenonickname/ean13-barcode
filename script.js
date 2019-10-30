@@ -2,9 +2,8 @@ var userInput = document.getElementById('user-input');
 var binaryTable = document.getElementById('binary-table');
 var displayBarcode = document.getElementById('display-barcode');
 var result = document.getElementById('result');
-var tabExplanation = document.getElementById('tab-explanation');
-var tabBarcode = document.getElementById('tab-barcode');
-var tabs = document.getElementById('tabs');
+var displayMultiplicationCalc = document.getElementById('display-multiplication-calc');
+var displayMultiplicationRes = document.getElementById('display-multiplication-res');
 
 var tables = {
     A: [
@@ -65,23 +64,38 @@ function generateDV(digits) {
     for (var i = 0; i < digits.length; i++) {
         var x = digits[i];
 
-        if (i % 2 !== 0) {
+        if (i % 2 === 0) {
+            displayMultiplicationCalc.childNodes[i].textContent = `${x} × 1`;
+        } else {
+            displayMultiplicationCalc.childNodes[i].textContent = `${x} × 3`;
             x *= 3;
         }
+
+        displayMultiplicationRes.childNodes[i].textContent = x;
 
         sum += x;
     }
 
-    sum = ((Math.floor(sum / 10) + 1) * 10) - sum;
+    document.getElementById('display-sum').textContent = sum;
+    document.getElementById('display-sum-2').textContent = sum;
+    document.getElementById('display-int-part').textContent = Math.floor(sum / 10);
+    document.getElementById('display-frac-part').textContent = (((sum / 10) % 1) * 10).toFixed(0)
 
-    return sum % 10 === 0 ? 0 : sum;
+    var dv = Math.floor(sum / 10);
+
+    document.getElementById('display-int-part-2').textContent = dv;
+    document.getElementById('display-sum-3').textContent = sum;
+    dv = (dv + 1) * 10 - sum;
+    document.getElementById('display-dv').textContent = dv;
+
+    dv = dv % 10 === 0 ? 0 : dv
+    document.getElementById('display-dv-2').textContent = dv;
+
+    return dv % 10 === 0 ? 0 : dv;
 }
 
 userInput.addEventListener('input', function () {
     result.classList.add('is-hidden');
-    tabs.classList.add('is-hidden');
-    tabBarcode.classList.remove('is-active');
-    tabExplanation.classList.remove('is-active');
 
     var tbody = binaryTable.querySelector('tbody');
 
@@ -140,27 +154,7 @@ userInput.addEventListener('input', function () {
         tbody.appendChild(tr);
     }
 
-    tabs.classList.remove('is-hidden');
-    displayBarcode.classList.add('is-hidden');
-    binaryTable.classList.remove('is-hidden');
     result.classList.remove('is-hidden');
-    tabExplanation.classList.add('is-active');
 });
 
 // 490250535576 9
-
-tabExplanation.addEventListener('click', function () {
-    displayBarcode.classList.add('is-hidden');
-    tabBarcode.classList.remove('is-active');
-
-    binaryTable.classList.remove('is-hidden');
-    tabExplanation.classList.add('is-active');
-});
-
-tabBarcode.addEventListener('click', function () {
-    binaryTable.classList.add('is-hidden');
-    tabExplanation.classList.remove('is-active');
-
-    displayBarcode.classList.remove('is-hidden');
-    tabBarcode.classList.add('is-active');
-});
